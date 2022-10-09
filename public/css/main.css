@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #252525;
+    --primary: #274472;
+    --gray: #a0b8de;
+    --light: #41729F;
+    --text: #ecf1f8;
+    --danger: #ff304f;
+    --danger-dark: #b32137;
+    --green: #21e6c1;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    background-color: var(--dark);
+    font-family: 'Lato', sans-serif;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 800px;
+    max-width: 95%;
+    height: 100vh;
+    margin-inline: auto;
+}
+
+/* [-] Utility classes */
+button {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.d-none {
+    display: none !important;
+}
+
+
+/* [+] Header part start */
+
+.container .header {
+    width: 100%;
+    height: 60px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 20px;
+}
+
+.container .header .brand {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+}
+
+.container .header .brand img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.container .header .brand h2 {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.container .header .profile {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.container .header .profile .username {
+    color: var(--text);
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.container .header .profile button.room__leave {
+    background-color: var(--danger);
+}
+
+.container .header .profile button.room__leave i {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.container .header .profile button.room__leave:hover {
+    background-color: var(--danger-dark);
+}
+
+.container .header button.join__room {
+    background-color: var(--light);
+    font-weight: 400;
+    gap: 10px;
+}
+
+.container .header button.join__room i {
+    font-size: 1.3rem;
+}
+
+.container .header button.join__room:hover {
+    background-color: #376085;
+}
+
+/* [-] Header part end */
+
+
+
+/* [+] Application main body */
+.container .body {
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100% - 80px);
+    position: relative;
+}
+
+/* [+] Sidebar start */
+.body .sidebar {
+    width: 200px;
+    border-right: .9px solid var(--light);
+    display: flex;
+    flex-direction: column;
+}
+
+.body .sidebar .online__users {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-bottom: 1.5px solid var(--light);
+}
+
+.body .sidebar ul.users {
+    background-color: #274472;
+    padding: 5px 0;
+    height: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.body .sidebar ul.users>li {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--light);
+}
+
+.body .sidebar ul.users>li:hover {
+    background-color: var(--gray);
+    color: var(--primary);
+}
+
+.body .sidebar ul.users>li.active {
+    background-color: var(--gray);
+    color: var(--primary);
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.body .sidebar ul.users>li.active::after,
+.body .sidebar ul.users>li.active::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    right: -22px;
+    top: 0;
+    background-color: var(--primary);
+}
+
+.body .sidebar ul.users>li.active::after {
+    transform: rotate(45deg);
+    transform-origin: 100%;
+}
+
+.body .sidebar ul.users>li.active::before {
+    transform: rotate(318deg);
+    transform-origin: 100%;
+}
+
+/* [+] Sidebar End */
+
+/* [-] messages  */
+.body .messages__wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.body .messages__wrapper .messages {
+    background-color: #599ddc;
+    flex: 1;
+    padding: 3px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.body .messages__wrapper .messages .message[data-type="incoming"],
+.body .messages__wrapper .messages .message[data-type="outgoing"] {
+    color: var(--text);
+    font-size: .85rem;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.body .messages__wrapper .messages .message .msg__timestamp {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: .7rem;
+    color: var(--gray);
+}
+
+.body .messages__wrapper .messages .message[data-type="incoming"] {
+    margin-right: 10%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: var(--primary);
+    padding-left: 20px !important;
+}
+
+.body .messages__wrapper .messages .message[data-type="outgoing"] {
+    background-color: var(--light);
+    margin-left: 10%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 8px;
+    padding-right: 20px !important;
+}
+
+
+.body .messages__wrapper .textarea {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #b32137;
+}
+
+.body .messages__wrapper .textarea textarea {
+    width: 100%;
+    height: 100%;
+    padding: 6px 40px 6px 6px;
+    resize: none;
+    outline: none;
+    border: none;
+    color: var(--text);
+    background-color: var(--primary);
+}
+
+.body .messages__wrapper .textarea textarea::-webkit-scrollbar {
+    background-color: transparent;
+    visibility: hidden;
+}
+
+.body .messages__wrapper .textarea button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 1.5rem;
+}
+
+.body .messages__wrapper .textarea button:hover {
+    color: var(--green);
+    transform: scale(1.1);
+}
+
+/* [-] Application main body */
+
+
+
+
+/* [+] Footer start */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 800px;
+    max-width: 95%;
+    height: 20px;
+    background-color: var(--light);
+    box-sizing: border-box;
+    color: #599ddc;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* [-] Footer end */

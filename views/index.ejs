@@ -1,1 +1,22 @@
-<h1>Hello from Body</h1>
+<%- include('./sidebar.ejs') %>
+
+<div class="messages__wrapper">
+  <div class="messages">
+    <div class="message" data-type="incoming">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, eos!
+      <span class="msg__timestamp">09:39 PM</span>
+    </div>
+    <div class="message" data-type="outgoing">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, eos!
+      <span class="msg__timestamp">09:39 PM</span>
+    </div>
+  </div>
+  <div class="textarea">
+    <textarea name="msg" id="msg"></textarea>
+    <button>
+      <i class="bx bxs-send"></i>
+    </button>
+  </div>
+</div>
+
+<%- include('./popup.ejs') %>

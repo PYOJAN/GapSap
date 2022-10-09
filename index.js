@@ -13,7 +13,7 @@ app.set("layout", "./layouts/index");
 app.set("view engine", "ejs");
 
 app.get("/", (req, res, next) => {
-  res.render("index", { title: "GapSap" });
+  res.render("index", { title: "GapSap", name: "pintu Prajapati" });
 });
 
 export default createServer(app);

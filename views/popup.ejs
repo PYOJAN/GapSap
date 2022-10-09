@@ -1,0 +1,84 @@
+<div class="popup d-none">
+  <div class="dialogbox__wrapper">
+    <button class="popup-close-btn">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3 class="dialog__heading">Please Enter Your Name.</h3>
+    <div class="input__feild">
+      <input type="text" placeholder="Full Name" />
+    </div>
+    <button class="btn-join">Join</button>
+  </div>
+</div>
+
+<style>
+  /* Utilities components*/
+  .popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #252525e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup .dialogbox__wrapper {
+    position: relative;
+    width: 60%;
+    height: max-content;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--primary);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  .popup .dialogbox__wrapper .dialog__heading {
+    color: var(--text);
+    margin: 0 0 10px 0;
+  }
+  .popup .dialogbox__wrapper .input__feild {
+    width: 100%;
+    height: 45px;
+    background-color: var(--text);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    /* box-shadow: rgba(17, 108, 213, 0.3) 0px 0px 0px 3px; */
+  }
+  .popup .dialogbox__wrapper .input__feild > input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 4px 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary);
+  }
+  .popup .dialogbox__wrapper .btn-join {
+    align-self: flex-end;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 35px;
+    background-color: var(--green);
+  }
+  .popup .dialogbox__wrapper .popup-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    padding: 4px;
+    color: var(--danger);
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .popup .dialogbox__wrapper .popup-close-btn:hover {
+    box-shadow: rgba(214, 3, 66, 0.3) 0px 0px 0px 3px;
+  }
+</style>

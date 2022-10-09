@@ -1,0 +1,11 @@
+[+] Server setup
+
+[-] ejs setup for frontend
+
+[-] frontend design
+
+[-] socket.io setup 
+
+[-] Room create and connection create with socket.io
+
+[-] Deployment on github
